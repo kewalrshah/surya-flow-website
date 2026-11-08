@@ -931,3 +931,8 @@ html:has(#download) { background: #1F8A9E; }
 /* Benefits' tinted band fades in and out at both ends */
 .benefits { background: linear-gradient(180deg, transparent 0, var(--bg-2) 180px, var(--bg-2) calc(100% - 180px), transparent 100%); }
 .hero-waves { bottom: -3px; } .closing-waves { bottom: -3px; }
+@media (max-width: 600px) {
+  /* Tighter gap between the FAQs and the closing, keeping the fade */
+  #help { padding-bottom: 8px; }
+  .closing { min-height: 0; padding-top: 96px; }
+}
