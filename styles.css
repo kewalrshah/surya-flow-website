@@ -936,3 +936,15 @@ html:has(#download) { background: #1F8A9E; }
   #help { padding-bottom: 8px; }
   .closing { min-height: 0; padding-top: 96px; }
 }
+@media (max-width: 600px) {
+  /* Gentler swells on phones: stretch the waves wider so each curve is long and low */
+  .hero-waves svg, .closing-waves svg { width: 500%; }
+  .wave-1, .cw-1 { animation-duration: 60s; }
+  .wave-2, .cw-2 { animation-duration: 75s; }
+  .wave-3, .cw-3 { animation-duration: 50s; }
+}
+@media (max-width: 600px) {
+  /* Keep the closing waves the same size now that the section is shorter */
+  .closing-waves { height: 224px; }
+  .closing { padding-bottom: 214px; }
+}
