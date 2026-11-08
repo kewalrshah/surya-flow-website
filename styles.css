@@ -961,10 +961,6 @@ html:has(.wave-foot) { background: #1F8A9E; }
   .hero-waves { bottom: 61px; }
 }
 @media (max-width: 360px) { #features .section-title { font-size: 31px; } }
-@media (max-width: 600px) {
-  /* Teal continues under Safari's bottom bar at the end of the page */
-  footer.wave-foot { padding-bottom: calc(14px + 84px + env(safe-area-inset-bottom)); }
-}
 @media (min-width: 601px) {
   /* Closing: less empty space above, taller wave bands below */
   #help { padding-bottom: 24px; }
@@ -972,3 +968,9 @@ html:has(.wave-foot) { background: #1F8A9E; }
   .closing-waves { height: 300px; }
   .closing .store-badge { margin-top: 36px; }
 }
+
+/* Footer: solid teal below its top 48px (which overlaps the wave), so the page ends on teal with nothing pale below */
+footer.wave-foot, :root[data-theme="dark"] footer.wave-foot { background: linear-gradient(180deg, transparent 48px, #1F8A9E 48px); }
+:root[data-theme="dark"] footer.wave-foot { background: linear-gradient(180deg, transparent 48px, #1C1A45 48px); }
+body:has(.wave-foot) { background: linear-gradient(var(--bg), var(--bg)) top / 100% calc(100% - 40px) no-repeat, #1F8A9E; }
+:root[data-theme="dark"] body:has(.wave-foot) { background: linear-gradient(var(--bg), var(--bg)) top / 100% calc(100% - 40px) no-repeat, #1C1A45; }
