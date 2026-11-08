@@ -904,3 +904,7 @@ footer { padding: 26px 0 30px; }
   #flow .flow-head { gap: 28px; }
   .steps { padding-top: 30px; }
 }
+@media (max-width: 600px) {
+  #features .section-title { white-space: nowrap; font-size: min(8.6vw, 38px); }
+  #features .section-lede { display: none; }
+}
