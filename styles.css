@@ -918,3 +918,8 @@ main:has(#download) + footer .foot a:hover { color: #fff; }
 :root[data-theme="dark"] main:has(#download) + footer { background: #1C1A45; color: rgba(255,244,232,.72); }
 :root[data-theme="dark"] main:has(#download) + footer .disclaimer { color: rgba(255,244,232,.55); }
 :root[data-theme="dark"] main:has(#download) + footer .foot a { color: rgba(255,244,232,.8); }
+/* Footer sits inside the last wave, so the three bands stay equal */
+main:has(#download) + footer, :root[data-theme="dark"] main:has(#download) + footer { background: transparent; position: relative; z-index: 3; margin-top: -48px; padding: 0 0 calc(14px + env(safe-area-inset-bottom)); }
+main:has(#download) + footer .foot { min-height: 34px; }
+html:has(#download) { background: #1F8A9E; }
+:root[data-theme="dark"]:has(#download) { background: #1C1A45; }
