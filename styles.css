@@ -923,3 +923,11 @@ main:has(#download) + footer, :root[data-theme="dark"] main:has(#download) + foo
 main:has(#download) + footer .foot { min-height: 34px; }
 html:has(#download) { background: #1F8A9E; }
 :root[data-theme="dark"]:has(#download) { background: #1C1A45; }
+
+/* ===== Seamless section transitions (desktop + mobile) ===== */
+/* The hero's last wave dissolves into the page instead of ending on a hard line */
+#flow { background: linear-gradient(180deg, #1F8A9E 0, color-mix(in srgb, #1F8A9E 72%, var(--bg)) 40px, color-mix(in srgb, #1F8A9E 38%, var(--bg)) 100px, color-mix(in srgb, #1F8A9E 12%, var(--bg)) 180px, var(--bg) 280px); }
+:root[data-theme="dark"] #flow { background: linear-gradient(180deg, #1C1A45 0, var(--bg) 200px); }
+/* Benefits' tinted band fades in and out at both ends */
+.benefits { background: linear-gradient(180deg, transparent 0, var(--bg-2) 180px, var(--bg-2) calc(100% - 180px), transparent 100%); }
+.hero-waves { bottom: -3px; } .closing-waves { bottom: -3px; }
