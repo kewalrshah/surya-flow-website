@@ -776,3 +776,10 @@ footer { padding: 26px 0 30px; }
 /* ===== Round 14 ===== */
 .nav-links a:hover, .nav-links a.active, .nav-links a[aria-current] { color: var(--accent-text); background: rgba(240, 138, 60, .14); }
 .closing .store-badge { margin-top: 48px; }
+
+/* ===== Round 15 ===== */
+/* Equal-thickness wave bands (top, middle, bottom each show about a third) */
+.hero-waves .wave-2 { height: 70% !important; }
+.hero-waves .wave-3 { height: 32% !important; }
+.closing-waves .cw-2 { height: 70%; }
+.closing-waves .cw-3 { height: 32%; }
