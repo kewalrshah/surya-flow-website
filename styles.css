@@ -884,3 +884,14 @@ footer { padding: 26px 0 30px; }
   :root[data-theme="dark"] .closing { background: linear-gradient(180deg, var(--bg) 0%, #1C1A45 26%, #3B2A6A 60%, #7A3F63 100%); }
 }
 @media (max-width: 600px) { .closing { -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 90px); mask-image: linear-gradient(180deg, transparent 0, #000 90px); } }
+
+/* ===== Mobile round 3: full-screen sections, behind Safari's bottom bar ===== */
+@media (max-width: 600px) {
+  /* The hero runs under the browser's bottom bar (large viewport), while the text stays centred in the part you can see */
+  .hero { height: 100vh; height: 100lvh; min-height: 560px; padding-bottom: calc(100lvh - 100svh); }
+  .hero-grid { padding-bottom: 28svh; }
+  .hero-waves { height: 32%; height: calc(30svh + 100lvh - 100svh); }
+  /* Each following section fills at least one screen, with its content centred */
+  #flow, .closing { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; }
+  .closing-waves { height: 34%; }
+}
