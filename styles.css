@@ -961,3 +961,7 @@ html:has(.wave-foot) { background: #1F8A9E; }
   .hero-waves { bottom: 61px; }
 }
 @media (max-width: 360px) { #features .section-title { font-size: 31px; } }
+@media (max-width: 600px) {
+  /* Teal continues under Safari's bottom bar at the end of the page */
+  footer.wave-foot { padding-bottom: calc(14px + 84px + env(safe-area-inset-bottom)); }
+}
