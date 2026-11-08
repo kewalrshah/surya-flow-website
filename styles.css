@@ -921,8 +921,6 @@ footer.wave-foot .foot a:hover { color: #fff; }
 /* Footer sits inside the last wave, so the three bands stay equal */
 footer.wave-foot, :root[data-theme="dark"] footer.wave-foot { background: transparent; position: relative; z-index: 3; margin-top: -48px; padding: 0 0 calc(14px + env(safe-area-inset-bottom)); }
 footer.wave-foot .foot { min-height: 34px; }
-html:has(.wave-foot) { background: linear-gradient(180deg, var(--sky-1) 0 50%, #1F8A9E 50% 100%); }
-:root[data-theme="dark"]:has(.wave-foot) { background: linear-gradient(180deg, var(--dusk-1) 0 50%, #1C1A45 50% 100%); }
 
 /* ===== Seamless section transitions (desktop + mobile) ===== */
 .hero-waves { bottom: -3px; } .closing-waves { bottom: -3px; }
@@ -972,5 +970,9 @@ html:has(.wave-foot) { background: linear-gradient(180deg, var(--sky-1) 0 50%, #
 /* Footer: solid teal below its top 48px (which overlaps the wave), so the page ends on teal with nothing pale below */
 footer.wave-foot, :root[data-theme="dark"] footer.wave-foot { background: linear-gradient(180deg, transparent 48px, #1F8A9E 48px); }
 :root[data-theme="dark"] footer.wave-foot { background: linear-gradient(180deg, transparent 48px, #1C1A45 48px); }
-body:has(.wave-foot) { background: linear-gradient(var(--bg), var(--bg)) top / 100% calc(100% - 40px) no-repeat, #1F8A9E; }
-:root[data-theme="dark"] body:has(.wave-foot) { background: linear-gradient(var(--bg), var(--bg)) top / 100% calc(100% - 40px) no-repeat, #1C1A45; }
+body:has(.wave-foot) { background: linear-gradient(var(--bg), var(--bg)) top / 100% calc(100% - 40px) no-repeat, linear-gradient(#1F8A9E, #1F8A9E); background-color: var(--bg); }
+:root[data-theme="dark"] body:has(.wave-foot) { background: linear-gradient(var(--bg), var(--bg)) top / 100% calc(100% - 40px) no-repeat, linear-gradient(#1C1A45, #1C1A45); background-color: var(--bg); }
+
+/* Safari tints the area beyond the page from the background colour: page colour at the top, teal once you reach the footer */
+html.at-end, html.at-end body { background-color: #1F8A9E !important; }
+:root[data-theme="dark"].at-end, :root[data-theme="dark"].at-end body { background-color: #1C1A45 !important; }

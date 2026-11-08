@@ -309,3 +309,13 @@
 
   renderSteps(); renderStage(); renderMantras("en"); watch(); play();
 })();
+
+// Near the footer, switch the page's background colour to the footer teal so Safari's overscroll and bars match it.
+(() => {
+  if (!document.querySelector(".wave-foot")) return;
+  const root = document.documentElement;
+  const check = () => root.classList.toggle("at-end", scrollY + innerHeight >= root.scrollHeight - 160);
+  addEventListener("scroll", check, { passive: true });
+  addEventListener("resize", check);
+  check();
+})();
