@@ -909,3 +909,12 @@ footer { padding: 26px 0 30px; }
   #features .section-lede { display: none; }
 }
 @media (min-width: 601px) { .closing { -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 160px); mask-image: linear-gradient(180deg, transparent 0, #000 160px); } }
+
+/* Footer continues the closing section's last wave, so it reads as one piece */
+main:has(#download) + footer { background: #1F8A9E; color: rgba(255,255,255,.82); border-top: 0; margin-top: -1px; padding-bottom: calc(30px + env(safe-area-inset-bottom)); }
+main:has(#download) + footer .disclaimer { color: rgba(255,255,255,.7); }
+main:has(#download) + footer .foot a { color: rgba(255,255,255,.88); }
+main:has(#download) + footer .foot a:hover { color: #fff; }
+:root[data-theme="dark"] main:has(#download) + footer { background: #1C1A45; color: rgba(255,244,232,.72); }
+:root[data-theme="dark"] main:has(#download) + footer .disclaimer { color: rgba(255,244,232,.55); }
+:root[data-theme="dark"] main:has(#download) + footer .foot a { color: rgba(255,244,232,.8); }
