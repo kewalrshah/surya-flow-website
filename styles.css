@@ -943,3 +943,21 @@ html:has(.wave-foot) { background: #1F8A9E; }
   .closing-waves { height: 224px; }
   .closing { padding-bottom: 214px; }
 }
+
+/* App Store badge: keep the smooth fade-and-rise when it reveals, plus an eased hover */
+.store-badge { transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s cubic-bezier(.2,.8,.2,1); will-change: transform; }
+.store-badge.reveal { transition: opacity .9s cubic-bezier(.2,.8,.2,1) var(--d, 0s), transform .9s cubic-bezier(.2,.8,.2,1) var(--d, 0s), box-shadow .35s ease; }
+.store-badge.reveal.in:hover { transition-delay: 0s; }
+
+.m-br { display: none; }
+@media (max-width: 600px) {
+  /* "Built for / daily practice" at the same size as "Eleven steps" */
+  .m-br { display: inline; }
+  #features .section-title { white-space: normal; font-size: 38px; }
+  /* Longer teal band at the bottom of the hero, running under Safari's bar */
+  .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 64px; background: #1F8A9E; z-index: 2; }
+  :root[data-theme="dark"] .hero::after { background: #1C1A45; }
+  .hero { height: calc(100lvh + 64px); padding-bottom: calc(100lvh - 100svh + 64px); }
+  .hero-waves { bottom: 61px; }
+}
+@media (max-width: 360px) { #features .section-title { font-size: 31px; } }
