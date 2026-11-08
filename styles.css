@@ -844,3 +844,43 @@ footer { padding: 26px 0 30px; }
   .step-img { height: 112px; } .step-img img { max-height: 100px; }
   .step h3 { font-size: 14px; }
 }
+
+/* ===== Mobile round 2 ===== */
+@media (max-width: 600px) {
+  /* Soft sun glow behind the hero heading */
+  .hero-copy { position: relative; z-index: 0; }
+  .hero-copy::before { content: ""; position: absolute; z-index: -1; left: 50%; top: 34%; width: 150vw; max-width: 620px; aspect-ratio: 1; translate: -50% -50%; border-radius: 50%; pointer-events: none;
+    background: radial-gradient(closest-side, rgba(255,214,120,.9) 0%, rgba(255,190,110,.55) 32%, rgba(255,160,120,.2) 62%, rgba(255,150,130,0) 100%);
+    animation: glow 6s ease-in-out infinite; }
+  :root[data-theme="dark"] .hero-copy::before { background: radial-gradient(closest-side, rgba(255,196,110,.6) 0%, rgba(240,138,90,.32) 35%, rgba(200,100,140,.12) 65%, rgba(122,63,99,0) 100%); }
+
+  /* Bigger step cards: two full cards and about a quarter of the third */
+  #flow { padding: 24px 0 28px; }
+  #flow .section-title { font-size: 38px; }
+  #flow .section-lede { font-size: 16.5px; }
+  .steps { grid-auto-columns: calc((100% - 8px) / 2.25); gap: 12px; padding: 18px 16px 12px; }
+  .step { padding: 14px; border-radius: 22px; }
+  .step-top { font-size: 12px; }
+  .breath-tag { font-size: 11px; padding: 4px 9px; }
+  .step-img { height: 178px; padding: 12px 0 10px; }
+  .step-img img { max-height: 164px; }
+  .step h3 { font-size: 18px; }
+  .step p { font-size: 13px; }
+}
+@media (max-width: 360px) {
+  #flow .section-title { font-size: 31px; }
+  #flow .section-lede { font-size: 14.5px; }
+  .steps { grid-auto-columns: calc((100% - 8px) / 2.25); }
+  .step { padding: 11px; }
+  .step-top { font-size: 10px; } .breath-tag { font-size: 9px; padding: 3px 6px; }
+  .step-img { height: 128px; } .step-img img { max-height: 116px; }
+  .step h3 { font-size: 15px; } .step p { font-size: 12px; }
+}
+@media (max-width: 600px) {
+  /* Benefits: just the two lists, no figure */
+  .benefit-art { display: none; }
+  /* Closing: fade in from the page colour instead of a hard edge */
+  .closing { background: linear-gradient(180deg, var(--bg) 0%, var(--sky-1) 40%, var(--sky-2) 68%, var(--sky-3) 100%); }
+  :root[data-theme="dark"] .closing { background: linear-gradient(180deg, var(--bg) 0%, #1C1A45 26%, #3B2A6A 60%, #7A3F63 100%); }
+}
+@media (max-width: 600px) { .closing { -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 90px); mask-image: linear-gradient(180deg, transparent 0, #000 90px); } }
