@@ -102,6 +102,36 @@
   const queueEdges = () => { if (!edgeRAF) edgeRAF = requestAnimationFrame(updateEdges); };
   if (steps) { steps.addEventListener("scroll", queueEdges, { passive: true }); addEventListener("resize", queueEdges); }
 
+  // A thin progress track under the cards, and a one-time nudge on phones, so it's clear the row scrolls.
+  if (steps) {
+    const track = document.createElement("div");
+    track.className = "steps-track"; track.setAttribute("aria-hidden", "true");
+    track.innerHTML = "<i></i>";
+    steps.after(track);
+    const thumb = track.firstChild;
+    const syncTrack = () => {
+      const max = steps.scrollWidth - steps.clientWidth;
+      const vis = steps.clientWidth / steps.scrollWidth;
+      thumb.style.width = (vis * 100).toFixed(1) + "%";
+      thumb.style.transform = `translateX(${max > 0 ? (steps.scrollLeft / max) * ((1 - vis) / vis) * 100 : 0}%)`;
+    };
+    steps.addEventListener("scroll", () => requestAnimationFrame(syncTrack), { passive: true });
+    addEventListener("resize", syncTrack);
+    setTimeout(syncTrack, 50);
+    if (!reduce && matchMedia("(max-width: 600px)").matches) {
+      const nudgeIO = new IntersectionObserver((es) => {
+        if (!es[0].isIntersecting) return;
+        nudgeIO.disconnect();
+        setTimeout(() => {
+          if (steps.scrollLeft > 4) return;
+          steps.classList.add("nudge");
+          setTimeout(() => steps.classList.remove("nudge"), 1300);
+        }, 500);
+      }, { threshold: 0.6 });
+      nudgeIO.observe(steps);
+    }
+  }
+
   // Hero figure: plays through a cycle. Each pose is scaled so the figure reads the same size as the forward bend.
   const stage = $("#pStage");
   const poseScale = { prayer: 1.27, raised: 1.27, fold: 1, "lunge-a": 1.2, plank: 1.11, eight: 1.3, cobra: 1.3, dog: 1.3, "lunge-b": 1.15 };

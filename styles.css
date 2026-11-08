@@ -810,3 +810,37 @@ footer { padding: 26px 0 30px; }
   .nav .brand img { width: 30px; height: 30px; }
   .store-pill { padding: 8px 12px 8px 10px; font-size: 13px; }
 }
+
+/* ===== Mobile: The Flow ===== */
+.steps-track { display: none; }
+@media (max-width: 600px) {
+  #flow { padding: 28px 0 32px; }
+  #flow .section-title { font-size: 36px; margin-top: 0; }
+  #flow .section-lede { font-size: 16px; line-height: 1.5; margin-top: 12px; }
+  #flow .flow-head { gap: 16px; }
+  #flow .seg button { padding: 8px 14px; font-size: 13px; }
+  .steps { grid-auto-columns: calc((100% - 32px - 20px) / 2.3); gap: 10px; padding: 18px 16px 10px; scroll-padding-inline: 16px; }
+  .step { min-height: 0; padding: 12px; border-radius: 20px; }
+  .step-top { font-size: 11px; }
+  .breath-tag { font-size: 10px; padding: 4px 8px; }
+  .step-img { min-height: 0; height: 132px; padding: 10px 0 8px; flex: none; }
+  .step-img img { max-height: 120px; }
+  .step h3 { font-size: 16px; line-height: 1.15; min-height: 2.3em; display: flex; align-items: flex-end; }
+  .step p { font-size: 12px; }
+  .steps-track { display: block; position: relative; height: 3px; width: 72px; margin: 6px auto 0; border-radius: 3px; background: var(--line); overflow: hidden; }
+  .steps-track i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 3px; background: var(--accent); transition: transform .12s linear; }
+  :root[data-theme="dark"] .steps-track { background: rgba(255,244,232,.14); }
+  .steps.nudge .step { animation: nudge 1.2s cubic-bezier(.4,0,.2,1); }
+}
+@keyframes nudge { 0%, 100% { translate: 0 0; } 35% { translate: -38px 0; } 65% { translate: -38px 0; } }
+@media (max-width: 600px) { .step-top span { white-space: nowrap; } .step-top { gap: 4px; } }
+@media (max-width: 360px) {
+  #flow .section-title { font-size: 30px; }
+  #flow .section-lede { font-size: 14.5px; }
+  .steps { grid-auto-columns: calc((100% - 32px - 20px) / 2.2); }
+  .step { padding: 10px; }
+  .step-top { font-size: 10px; }
+  .breath-tag { font-size: 9px; padding: 3px 6px; }
+  .step-img { height: 112px; } .step-img img { max-height: 100px; }
+  .step h3 { font-size: 14px; }
+}
