@@ -911,18 +911,18 @@ footer { padding: 26px 0 30px; }
 @media (min-width: 601px) { .closing { -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 160px); mask-image: linear-gradient(180deg, transparent 0, #000 160px); } }
 
 /* Footer continues the closing section's last wave, so it reads as one piece */
-main:has(#download) + footer { background: #1F8A9E; color: rgba(255,255,255,.82); border-top: 0; margin-top: -1px; padding-bottom: calc(30px + env(safe-area-inset-bottom)); }
-main:has(#download) + footer .disclaimer { color: rgba(255,255,255,.7); }
-main:has(#download) + footer .foot a { color: rgba(255,255,255,.88); }
-main:has(#download) + footer .foot a:hover { color: #fff; }
-:root[data-theme="dark"] main:has(#download) + footer { background: #1C1A45; color: rgba(255,244,232,.72); }
-:root[data-theme="dark"] main:has(#download) + footer .disclaimer { color: rgba(255,244,232,.55); }
-:root[data-theme="dark"] main:has(#download) + footer .foot a { color: rgba(255,244,232,.8); }
+footer.wave-foot { background: #1F8A9E; color: rgba(255,255,255,.82); border-top: 0; margin-top: -1px; padding-bottom: calc(30px + env(safe-area-inset-bottom)); }
+footer.wave-foot .disclaimer { color: rgba(255,255,255,.7); }
+footer.wave-foot .foot a { color: rgba(255,255,255,.88); }
+footer.wave-foot .foot a:hover { color: #fff; }
+:root[data-theme="dark"] footer.wave-foot { background: #1C1A45; color: rgba(255,244,232,.72); }
+:root[data-theme="dark"] footer.wave-foot .disclaimer { color: rgba(255,244,232,.55); }
+:root[data-theme="dark"] footer.wave-foot .foot a { color: rgba(255,244,232,.8); }
 /* Footer sits inside the last wave, so the three bands stay equal */
-main:has(#download) + footer, :root[data-theme="dark"] main:has(#download) + footer { background: transparent; position: relative; z-index: 3; margin-top: -48px; padding: 0 0 calc(14px + env(safe-area-inset-bottom)); }
-main:has(#download) + footer .foot { min-height: 34px; }
-html:has(#download) { background: #1F8A9E; }
-:root[data-theme="dark"]:has(#download) { background: #1C1A45; }
+footer.wave-foot, :root[data-theme="dark"] footer.wave-foot { background: transparent; position: relative; z-index: 3; margin-top: -48px; padding: 0 0 calc(14px + env(safe-area-inset-bottom)); }
+footer.wave-foot .foot { min-height: 34px; }
+html:has(.wave-foot) { background: #1F8A9E; }
+:root[data-theme="dark"]:has(.wave-foot) { background: #1C1A45; }
 
 /* ===== Seamless section transitions (desktop + mobile) ===== */
 /* The hero's last wave dissolves into the page instead of ending on a hard line */
