@@ -783,3 +783,5 @@ footer { padding: 26px 0 30px; }
 .hero-waves .wave-3 { height: 32% !important; }
 .closing-waves .cw-2 { height: 70%; }
 .closing-waves .cw-3 { height: 32%; }
+/* More breathing room between the figure and the benefit columns */
+@media (min-width: 1001px) { .benefits .wrap { max-width: 1320px; } .benefit-grid.around { column-gap: clamp(40px, 5vw, 76px); } }
