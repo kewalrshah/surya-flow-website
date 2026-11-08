@@ -921,8 +921,8 @@ footer.wave-foot .foot a:hover { color: #fff; }
 /* Footer sits inside the last wave, so the three bands stay equal */
 footer.wave-foot, :root[data-theme="dark"] footer.wave-foot { background: transparent; position: relative; z-index: 3; margin-top: -48px; padding: 0 0 calc(14px + env(safe-area-inset-bottom)); }
 footer.wave-foot .foot { min-height: 34px; }
-html:has(.wave-foot) { background: #1F8A9E; }
-:root[data-theme="dark"]:has(.wave-foot) { background: #1C1A45; }
+html:has(.wave-foot) { background: linear-gradient(180deg, var(--sky-1) 0 50%, #1F8A9E 50% 100%); }
+:root[data-theme="dark"]:has(.wave-foot) { background: linear-gradient(180deg, var(--dusk-1) 0 50%, #1C1A45 50% 100%); }
 
 /* ===== Seamless section transitions (desktop + mobile) ===== */
 .hero-waves { bottom: -3px; } .closing-waves { bottom: -3px; }
