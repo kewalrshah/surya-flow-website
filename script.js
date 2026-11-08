@@ -87,6 +87,7 @@
 
   // Cards shrink away at the left and right edges as they scroll past, mirroring how they rise in.
   let edgeRAF = 0;
+  const phone = matchMedia("(max-width: 600px)");
   function updateEdges() {
     edgeRAF = 0;
     if (!steps) return;
@@ -96,7 +97,7 @@
       const vis = Math.min(r.right, w) - Math.max(r.left, 0);
       const f = Math.max(0, Math.min(1, vis / r.width));
       el.style.setProperty("--h", (f * f * (3 - 2 * f)).toFixed(3));
-      el.classList.toggle("in", f > 0.25);
+      el.classList.toggle("in", f > (phone.matches ? 0.02 : 0.25));
     });
   }
   const queueEdges = () => { if (!edgeRAF) edgeRAF = requestAnimationFrame(updateEdges); };

@@ -895,3 +895,12 @@ footer { padding: 26px 0 30px; }
   #flow, .closing { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; }
   .closing-waves { height: 34%; }
 }
+@media (max-width: 600px) {
+  /* Keep the peeking card visible (softly faded) instead of hiding it */
+  .step.in, .step.in:hover { opacity: calc(.45 + .55 * var(--h, 1)); transform: translateY(calc((1 - var(--h, 1)) * 14px)) scale(calc(.94 + .06 * var(--h, 1))); }
+  /* More breathing room, and the section fills the screen down under the browser bar */
+  #flow { min-height: 100lvh; padding-bottom: calc(28px + 100lvh - 100svh); }
+  #flow .section-lede { margin-top: 16px; }
+  #flow .flow-head { gap: 28px; }
+  .steps { padding-top: 30px; }
+}
