@@ -46,15 +46,28 @@
   const src = (img, fig) => `assets/poses/${img}-${fig}.webp`;
   let figure = "male";
 
-  // Pages without an anchor always open at the top.
-  if (!location.hash) {
-    try { history.scrollRestoration = "manual"; } catch (e) {}
-    const toTop = () => { if (!location.hash) window.scrollTo({ top: 0, left: 0, behavior: "instant" }); };
-    toTop();
-    addEventListener("DOMContentLoaded", toTop);
-    addEventListener("load", () => { toTop(); setTimeout(toTop, 60); });
-    addEventListener("pageshow", toTop);
-  }
+  // Every visit, refresh or reopened tab starts at the very top (the first section).
+  // The one exception is a fresh click on a link to a section (say FAQs from the Privacy page, or the
+  // App Store Support URL): it goes there once, then the #section is dropped from the address so a
+  // later refresh starts at the top again. In-page links scroll without adding a #section at all.
+  try { history.scrollRestoration = "manual"; } catch (e) {}
+  const navType = (performance.getEntriesByType && performance.getEntriesByType("navigation")[0] || {}).type;
+  const target = location.hash && navType === "navigate" ? document.getElementById(location.hash.slice(1)) : null;
+  if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+  const toTop = () => { if (!target) window.scrollTo({ top: 0, left: 0, behavior: "instant" }); };
+  toTop();
+  addEventListener("DOMContentLoaded", toTop);
+  addEventListener("load", () => { toTop(); setTimeout(toTop, 60); if (target) target.scrollIntoView({ behavior: "instant", block: "start" }); });
+  addEventListener("pageshow", (e) => { if (e.persisted || !target) window.scrollTo({ top: 0, left: 0, behavior: "instant" }); });
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const id = a.getAttribute("href").slice(1);
+    const el = id ? document.getElementById(id) : null;
+    e.preventDefault();
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    else window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 
   // Nav background once scrolled.
   const nav = $("#nav");
