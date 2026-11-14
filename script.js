@@ -267,22 +267,6 @@
     loop(); setInterval(loop, 8000);
   }
 
-  // Watch tile steps through a few poses with their breath.
-  const wsPose = $("#wsPose"), wsWord = $("#wsWord"), wsHr = $("#wsHr");
-  if (wsPose && !reduce) {
-    let w = 4;
-    setInterval(() => {
-      w = (w + 1) % poses.length;
-      wsPose.style.opacity = 0;
-      setTimeout(() => {
-        wsPose.src = `assets/poses/${poses[w].img}-female.webp`;
-        wsWord.textContent = poses[w].breath;
-        wsHr.textContent = 58 + Math.round(Math.random() * 8);
-        wsPose.style.opacity = 1;
-      }, 300);
-    }, 4000);
-  }
-
   // Mantra tile cycles through all fourteen.
   const rot = $("#mantraRot");
   if (rot && !reduce) {

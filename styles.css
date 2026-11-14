@@ -987,25 +987,14 @@ html.at-end, html.at-end body { background-color: #1F8A9E !important; }
 .watch-feats li { font-size: 14.5px; line-height: 1.35; color: #FFF4E8; padding: 9px 15px 9px 13px; border-radius: 99px; background: rgba(255,244,232,.09); box-shadow: inset 0 0 0 1px rgba(255,244,232,.12); }
 .watch-feats li::before { content: "☀"; color: #F08A3C; margin-right: 8px; font-size: 13px; }
 .watch-req { margin-top: 8px; font-size: 13px; color: rgba(255,244,232,.55); }
-.watch { flex: none; position: relative; width: 236px; height: 284px; border-radius: 64px; padding: 14px; background: linear-gradient(145deg, #3A3A44, #0E0E12 60%, #2A2A31); box-shadow: 0 30px 60px rgba(10,8,30,.55), inset 0 0 0 1.5px rgba(255,255,255,.12); }
+.watch { flex: none; position: relative; width: 236px; height: 276px; border-radius: 64px; padding: 14px; background: linear-gradient(145deg, #3A3A44, #0E0E12 60%, #2A2A31); box-shadow: 0 30px 60px rgba(10,8,30,.55), inset 0 0 0 1.5px rgba(255,255,255,.12); }
 .watch-crown { position: absolute; right: -9px; top: 70px; width: 12px; height: 46px; border-radius: 5px; background: linear-gradient(90deg, #2A2A31, #6B6B76); }
 .watch-btn { position: absolute; right: -5px; top: 140px; width: 7px; height: 52px; border-radius: 4px; background: #2A2A31; }
-.watch-screen { position: relative; height: 100%; border-radius: 52px; overflow: hidden; background: linear-gradient(180deg, #1F1B4D 0%, #3B2A6A 65%, #6E3D66 100%); padding: 22px 22px 14px; display: flex; flex-direction: column; font-family: var(--display); }
-.ws-top { display: flex; justify-content: space-between; align-items: baseline; }
-.ws-top b { color: #F08A3C; font-size: 19px; font-weight: 700; }
-.ws-top span { color: #fff; font-size: 19px; font-weight: 600; }
-.ws-ring { position: relative; flex: 1; margin: 6px auto 4px; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid rgba(255,255,255,.18); display: grid; place-items: center; }
-.ws-glow { position: absolute; inset: 14%; border-radius: 50%; background: radial-gradient(circle, rgba(255,201,77,.55), rgba(240,138,60,.28) 62%, rgba(240,138,60,0) 72%); box-shadow: 0 0 0 1.5px rgba(240,138,60,.35) inset; animation: breathe 8s ease-in-out infinite; }
-.ws-ring img { position: relative; width: 86%; transition: opacity .35s; }
-.ws-bot { display: flex; align-items: center; justify-content: space-between; }
-.ws-hr { color: #fff; font-size: 18px; } .ws-hr i { font-style: normal; color: #FF3B4E; }
-.ws-word { color: #F08A3C; font-size: 16px; letter-spacing: .2em; text-transform: uppercase; }
-.ws-dots { display: flex; justify-content: center; gap: 5px; margin-top: 6px; }
-.ws-dots i { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,.3); } .ws-dots i.on { background: #fff; }
+.watch-screen { height: 100%; border-radius: 52px; overflow: hidden; background: #1F1B4D; }
+.watch-screen img { width: 100%; height: 100%; object-fit: cover; }
 @media (max-width: 680px) {
   .tile.watch-tile { flex-direction: column; align-items: stretch; padding: 30px; gap: 32px; }
-  .watch { align-self: center; width: 200px; height: 240px; border-radius: 54px; padding: 12px; }
-  .watch-screen { border-radius: 44px; padding: 18px 20px 12px; }
+  .watch { align-self: center; width: 200px; height: 234px; border-radius: 54px; padding: 12px; }
+  .watch-screen { border-radius: 44px; }
   .watch-feats { gap: 8px; } .watch-feats li { font-size: 14px; border-radius: 16px; padding: 8px 13px 8px 12px; }
-  .ws-top b, .ws-top span { font-size: 16px; } .ws-word { font-size: 13px; } .ws-hr { font-size: 15px; }
 }
